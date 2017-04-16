@@ -1,12 +1,13 @@
 package com.store.domain;
 
+import java.io.Serializable;
 import java.util.Date;
 /***
  * 用户实体
- * @author 49540
+ * @author 何长治
  *
  */
-public class User {
+public class User implements Serializable {
 	/**
 	 * create table user (
 	uid varchar(32) not null,

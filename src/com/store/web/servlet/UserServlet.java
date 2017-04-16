@@ -12,6 +12,7 @@ import com.store.constant.Constant;
 import com.store.domain.User;
 import com.store.service.UserService;
 import com.store.service.impl.UserServiceImpl;
+import com.store.utils.BeanFactory;
 import com.store.utils.DateConvert;
 import com.store.utils.MD5Utils;
 import com.store.utils.UUIDUtils;
@@ -26,7 +27,7 @@ import jdk.nashorn.internal.ir.RuntimeNode.Request;
  *
  */
 public class UserServlet extends BaseServlet {
-	private UserService s = new UserServiceImpl();
+	private UserService s = (UserService) BeanFactory.getBean("UserService");
 	private static final long serialVersionUID = 1L;
 
 	public String add(HttpServletRequest request, HttpServletResponse response)

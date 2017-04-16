@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!doctype html>
 <html>
 
@@ -27,184 +29,55 @@
 	</head>
 
 	<body>
-		
-			<!--
-            	时间：2015-12-30
-            	描述：菜单栏
-            -->
-			<div class="container-fluid">
-				<div class="col-md-4">
-					<img src="${pageContext.request.contextPath}/img/logo2.jpg" height="51px" width="200px" />
+		<!-- 导入顶部页面 -->
+		<jsp:include page="/jsp/head.jsp"></jsp:include>
+
+			<c:forEach items="${pb.list }" var="p">
+				<div class="col-md-2">
+					<a href="${pageContext.request.contextPath }/product?method=getProductById&pid=${p.pid}">
+						<img src="${p.pimage}" width="170" height="170" style="display: inline-block;">
+					</a>
+					<c:if test="${fn:length(p.pname)>10}">
+							<p><a href="${pageContext.request.contextPath }/product?method=getProductById&pid=${p.pid}" style='color:green'>${fn:substring(p.pname,0,10) }..</a></p>
+							</c:if>
+							<c:if test="${fn:length(p.pname)<=10}">
+							<p><a href="${pageContext.request.contextPath }/product?method=getProductById&pid=${p.pid}" style='color:green'>${p.pname}</a></p>
+							</c:if>
+					<p><font color="#FF0000">商城价：&yen;${p.shop_price }</font></p>
 				</div>
-				<div class="col-md-5">
-					<img src="${pageContext.request.contextPath}/img/header.png" />
-				</div>
-				<div class="col-md-3" style="padding-top:20px">
-					<ol class="list-inline">
-						<li><a href="login.htm">登录</a></li>
-						<li><a href="register.htm">注册</a></li>
-						<li><a href="cart.htm">购物车</a></li>
-					</ol>
-				</div>
-			</div>
-			<!--
-            	时间：2017-4-15
-            	描述：导航条
-            -->
-			<div class="container-fluid">
-				<nav class="navbar navbar-inverse">
-					<div class="container-fluid">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-							<a class="navbar-brand" href="#">首页</a>
-						</div>
-
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="#">手机数码<span class="sr-only">(current)</span></a></li>
-								<li><a href="#">电脑办公</a></li>
-								<li><a href="#">电脑办公</a></li>
-								<li><a href="#">电脑办公</a></li>
-							</ul>
-							<form class="navbar-form navbar-right" role="search">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search">
-								</div>
-								<button type="submit" class="btn btn-default">Submit</button>
-							</form>
-
-						</div>
-						<!-- /.navbar-collapse -->
-					</div>
-					<!-- /.container-fluid -->
-				</nav>
-			</div>
-
-
-		<div class="row" style="width:1210px;margin:0 auto;">
-			<div class="col-md-12">
-				<ol class="breadcrumb">
-					<li><a href="#">首页</a></li>
-				</ol>
-			</div>
-
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="${pageContext.request.contextPath}/products/1/cs10001.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>冬瓜</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="${pageContext.request.contextPath}/products/1/cs10002.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>圆白菜</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="${pageContext.request.contextPath}/products/1/cs10003.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>甜玉米</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="${pageContext.request.contextPath}/products/1/cs10004.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>胡萝卜</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="${pageContext.request.contextPath}/products/1/cs10005.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>芹菜</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="${pageContext.request.contextPath}/products/1/cs10006.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>韭菜</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="${pageContext.request.contextPath}/products/1/cs10007.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>香菜</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="${pageContext.request.contextPath}/products/1/cs10008.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>土豆</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="${pageContext.request.contextPath}/products/1/cs10007.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>香菜</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="${pageContext.request.contextPath}/products/1/cs10008.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>土豆</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="${pageContext.request.contextPath}/products/1/cs10007.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>香菜</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-			<div class="col-md-2">
-				<a href="product_info.htm">
-					<img src="${pageContext.request.contextPath}/products/1/cs10008.jpg" width="170" height="170" style="display: inline-block;">
-				</a>
-				<p><a href="product_info.html" style='color:green'>土豆</a></p>
-				<p><font color="#FF0000">商城价：&yen;299.00</font></p>
-			</div>
-
+			</c:forEach>
 		</div>
 
 		<!--分页 -->
 		<div style="width:380px;margin:0 auto;margin-top:50px;">
 			<ul class="pagination" style="text-align:center; margin-top:10px;">
-				<li class="disabled"><a href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
-				<li class="active"><a href="#">1</a></li>
-				<li><a href="#">2</a></li>
-				<li><a href="#">3</a></li>
-				<li><a href="#">4</a></li>
-				<li><a href="#">5</a></li>
-				<li><a href="#">6</a></li>
-				<li><a href="#">7</a></li>
-				<li><a href="#">8</a></li>
-				<li><a href="#">9</a></li>
-				<li>
-					<a href="#" aria-label="Next">
+				<!-- 判断上一页按钮能不能用 -->
+				<c:if test="${pb.currPage==1 }">
+				<li class="disabled"><a href="javascript:void(0)" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+				</c:if>
+				<c:if test="${pb.currPage!=1 }">
+				<li><a href="${pageContext.request.contextPath }/product?method=findByPage&cid=${param.cid }&currPage=${pb.currPage-1}" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a></li>
+				</c:if>
+				
+				<c:forEach begin="${pb.currPage-5>0?pb.currPage:1 }" end="${pb.currPage+4<totalPage?pb.currPage+4:pb.totalPage}" var="p">
+				<li><a href="${pageContext.request.contextPath }/product?method=findByPage&cid=${param.cid }&currPage=${p}">${p}</a></li>
+				</c:forEach>
+				
+				<!-- 判断下一页按钮是否可用 -->
+				<c:if test="${pb.currPage==pb.totalPage }">
+				<li class="disabled">
+					<a href="javascript:void(0)" aria-label="Next">
 						<span aria-hidden="true">&raquo;</span>
 					</a>
 				</li>
+				</c:if>
+				<c:if test="${pb.currPage!=pb.totalPage }">
+				<li>
+					<a href="${pageContext.request.contextPath }/product?method=findByPage&cid=${param.cid }&currPage=${pb.currPage+1}" aria-label="Next">
+						<span aria-hidden="true">&raquo;</span>
+					</a>
+				</li>
+				</c:if>
 			</ul>
 		</div>
 		<!-- 分页结束=======================        -->
@@ -219,11 +92,16 @@
 			<div style="clear: both;"></div>
 
 			<div style="overflow: hidden;">
-
 				<ul style="list-style: none;">
-					<li style="width: 150px;height: 216;float: left;margin: 0 8px 0 0;padding: 0 18px 15px;text-align: center;"><img src="${pageContext.request.contextPath}/products/1/cs10001.jpg" width="130px" height="130px" /></li>
+					<c:forEach items="${plist }" var="l">
+					
+					<a href="${pageContext.request.contextPath }/product?method=getProductById&pid=${l.pid}">
+					
+					<li style="width: 150px;height: 216;float: left;margin: 10px 8px 0 0;padding: 0 18px 15px;text-align: center;"><img src="${l.pimage}" width="130px" height="130px" /></li>
+				
+					</a>
+					</c:forEach>
 				</ul>
-
 			</div>
 		</div>
 		<div style="margin-top:50px;">

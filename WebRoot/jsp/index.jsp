@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+    <%@taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html>
 
@@ -14,73 +15,7 @@
 	</head>
 
 	<body>
-		<div class="container-fluid">
-
-			<!--
-            	时间：2017-4-14
-            	描述：菜单栏
-            -->
-			<div class="container-fluid">
-				<div class="col-md-4">
-					<img src="${pageContext.request.contextPath}/img/logo2.jpg" height="51px" width="200px" />
-				</div>
-				<div class="col-md-5">
-					<img src="${pageContext.request.contextPath}/img/header.png" />
-				</div>
-				<div class="col-md-3" style="padding-top:20px">
-					<ol class="list-inline">
-						<c:if test="${empty user }">
-							<li><a href="${ pageContext.request.contextPath}/user?method=loginUI">登录</a></li>
-							<li><a href="${ pageContext.request.contextPath}/user?method=registerUI">注册</a></li>
-						</c:if>
-						<c:if test="${!empty user }">
-							${user.name }：您好
-							<li><a href="${ pageContext.request.contextPath}/user?method=logOut">退出</a></li>
-							<li><a href="${ pageContext.request.contextPath}/user?method=registerUI">我的订单</a></li>
-						</c:if>
-						<li><a href="cart.htm">购物车</a></li>
-					</ol>
-				</div>
-			</div>
-			<!--
-            	时间：2017-4-14
-            	描述：导航条
-            -->
-			<div class="container-fluid">
-				<nav class="navbar navbar-inverse">
-					<div class="container-fluid">
-						<!-- Brand and toggle get grouped for better mobile display -->
-						<div class="navbar-header">
-							<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
-								<span class="sr-only">Toggle navigation</span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-								<span class="icon-bar"></span>
-							</button>
-							<a class="navbar-brand" href="#">首页</a>
-						</div>
-
-						<!-- Collect the nav links, forms, and other content for toggling -->
-						<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-							<ul class="nav navbar-nav">
-								<li class="active"><a href="product_list.htm">手机数码<span class="sr-only">(current)</span></a></li>
-								<li><a href="#">电脑办公</a></li>
-								<li><a href="#">电脑办公</a></li>
-								<li><a href="#">电脑办公</a></li>
-							</ul>
-							<form class="navbar-form navbar-right" role="search">
-								<div class="form-group">
-									<input type="text" class="form-control" placeholder="Search">
-								</div>
-								<button type="submit" class="btn btn-default">Submit</button>
-							</form>
-
-						</div>
-						<!-- /.navbar-collapse -->
-					</div>
-					<!-- /.container-fluid -->
-				</nav>
-			</div>
+		<jsp:include page="/jsp/head.jsp"></jsp:include>
 
 			<!--
             	时间：2017-4-14
@@ -145,77 +80,21 @@
 							<img src="${pageContext.request.contextPath}/products/hao/middle01.jpg" width="516px" height="200px" style="display: inline-block;">
 						</a>
 					</div>
-				
-					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/products/hao/small03.jpg" width="130" height="130" style="display: inline-block;">
-						</a>
-						<p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-					</div>
-	
-					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/products/hao/small04.jpg" width="130" height="130" style="display: inline-block;">
-						</a>
-						<p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-					</div>
-
-					<div class="col-md-2 yes-right-border" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/products/hao/small05.jpg" width="130" height="130" style="display: inline-block;">
-						</a>
-						<p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-					</div>
-					
-					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/products/hao/small03.jpg" width="130" height="130" style="display: inline-block;">
-						</a>
-						<p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-					</div>
-	
-					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/products/hao/small04.jpg" width="130" height="130" style="display: inline-block;">
-						</a>
-						<p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-					</div>
-
-					<div class="col-md-2 yes-right-border" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/products/hao/small05.jpg" width="130" height="130" style="display: inline-block;">
-						</a>
-						<p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-					</div>
-					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/products/hao/small03.jpg" width="130" height="130" style="display: inline-block;">
-						</a>
-						<p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-					</div>
-	
-					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/products/hao/small04.jpg" width="130" height="130" style="display: inline-block;">
-						</a>
-						<p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-					</div>
-
-					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/products/hao/small05.jpg" width="130" height="130" style="display: inline-block;">
-						</a>
-						<p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-					</div>
+					<!-- 最热商品 -->
+					<c:forEach items="${hotlist }" var = "c">
+						<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
+							<a href="${pageContext.request.contextPath }/product?method=getProductById&pid=${c.pid}">
+								<img src="${c.pimage }" width="130" height="130" style="display: inline-block;">
+							</a>
+							<c:if test="${fn:length(c.pname)>10}">
+							<p><a href="${pageContext.request.contextPath }/product?method=getProductById&pid=${c.pid}" style='color:#666'>${fn:substring(c.pname,0,10) }..</a></p>
+							</c:if>
+							<c:if test="${fn:length(c.pname)<=10}">
+							<p><a href="${pageContext.request.contextPath }/product?method=getProductById&pid=${c.pid}" style='color:#666'>${c.pname}</a></p>
+							</c:if>
+							<p><font color="#E4393C" style="font-size:16px">&yen;${c.shop_price }</font></p>
+						</div>
+					</c:forEach>
 				</div>
 			</div>
 			<!--
@@ -243,77 +122,21 @@
 							<img src="${pageContext.request.contextPath}/products/hao/middle01.jpg" width="516px" height="200px" style="display: inline-block;">
 						</a>
 					</div>
-				
-					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/products/hao/small03.jpg" width="130" height="130" style="display: inline-block;">
-						</a>
-						<p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-					</div>
-	
-					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/products/hao/small04.jpg" width="130" height="130" style="display: inline-block;">
-						</a>
-						<p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-					</div>
-
-					<div class="col-md-2 yes-right-border" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/products/hao/small05.jpg" width="130" height="130" style="display: inline-block;">
-						</a>
-						<p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-					</div>
-					
-					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/products/hao/small03.jpg" width="130" height="130" style="display: inline-block;">
-						</a>
-						<p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-					</div>
-	
-					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/products/hao/small04.jpg" width="130" height="130" style="display: inline-block;">
-						</a>
-						<p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-					</div>
-
-					<div class="col-md-2 yes-right-border" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/products/hao/small05.jpg" width="130" height="130" style="display: inline-block;">
-						</a>
-						<p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-					</div>
-					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/products/hao/small03.jpg" width="130" height="130" style="display: inline-block;">
-						</a>
-						<p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-					</div>
-	
-					<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/products/hao/small04.jpg" width="130" height="130" style="display: inline-block;">
-						</a>
-						<p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-					</div>
-
-					<div class="col-md-2 yes-right-border" style="text-align:center;height:200px;padding:10px 0px;">
-						<a href="product_info.htm">
-							<img src="${pageContext.request.contextPath}/products/hao/small05.jpg" width="130" height="130" style="display: inline-block;">
-						</a>
-						<p><a href="product_info.html" style='color:#666'>冬瓜</a></p>
-						<p><font color="#E4393C" style="font-size:16px">&yen;299.00</font></p>
-					</div>
+					<!-- 最新商品 -->
+					<c:forEach items="${hotlist }" var = "c">
+						<div class="col-md-2" style="text-align:center;height:200px;padding:10px 0px;">
+							<a href="${pageContext.request.contextPath }/product?method=getProductById&pid=${c.pid}">
+								<img src="${c.pimage }" width="130" height="130" style="display: inline-block;">
+							</a>
+							<c:if test="${fn:length(c.pname)>10}">
+							<p><a href="${pageContext.request.contextPath }/product?method=getProductById&pid=${c.pid}" style='color:#666'>${fn:substring(c.pname,0,10) }..</a></p>
+							</c:if>
+							<c:if test="${fn:length(c.pname)<=10}">
+							<p><a href="${pageContext.request.contextPath }/product?method=getProductById&pid=${c.pid}" style='color:#666'>${c.pname}</a></p>
+							</c:if>
+							<p><font color="#E4393C" style="font-size:16px">&yen;${c.shop_price }</font></p>
+						</div>
+					</c:forEach>
 				</div>
 			</div>			
 			<!--

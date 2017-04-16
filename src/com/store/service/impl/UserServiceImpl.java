@@ -1,13 +1,13 @@
 package com.store.service.impl;
 
 import com.store.dao.UserDao;
-import com.store.dao.impl.UserDaoImpl;
 import com.store.domain.User;
 import com.store.service.UserService;
+import com.store.utils.BeanFactory;
 import com.store.utils.MailUtils;
 
 public class UserServiceImpl implements UserService {
-	private UserDao userDao = new UserDaoImpl();
+	private UserDao userDao = (UserDao) BeanFactory.getBean("UserDao");
 	/***
 	 * ×¢²áÕÊºÅ
 	 */

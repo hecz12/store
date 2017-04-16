@@ -1,11 +1,7 @@
 package com.store.dao.impl;
 
-import javax.sql.DataSource;
-
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.BeanHandler;
-import org.apache.commons.dbutils.handlers.BeanListHandler;
-
 import com.store.dao.UserDao;
 import com.store.domain.User;
 import com.store.utils.DataSourceUtils;

@@ -12,7 +12,6 @@ public class BaseServlet extends HttpServlet {
     
     
 	private static final long serialVersionUID = 1L;
-	@Override
     public void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
     	
     	try {
@@ -40,7 +39,7 @@ public class BaseServlet extends HttpServlet {
 			throw new RuntimeException();
 		}
     }
-	    public String index(HttpServletRequest request,HttpServletResponse response)
+	    public String index(HttpServletRequest request,HttpServletResponse response) throws Exception
 	    {
 	    	return null;
 	    }
